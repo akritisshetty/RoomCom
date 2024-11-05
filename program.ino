@@ -27,3 +27,35 @@ void setup() {
   Serial.println(WiFi.localIP());
   server.begin();
 }
+String generateHTML() {
+  float temperature = getTemperature();
+  float humidity = getHumidity();
+  String html = "<!DOCTYPE html><html><head>";
+  html += "<title>RoomCom Monitor</title>";
+  html += "<meta name='viewport' content='width=device-width, initial-scale=1'>";
+  html += "<script src='https://kit.fontawesome.com/be133a2ef5.js' crossorigin='anonymous'></script>";
+  html += "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>";
+  html += "<style>";
+  html += "body { font-family: Arial; margin: 0; transition: background 0.5s, color 0.5s; }";
+  html += ".content { display: none; padding: 20px; transition: opacity 0.5s; }"; // Content hidden initially
+  html += ".light { background-color: #ffffff; color: #000000; }";
+  html += ".dark { background-color: #000000; color: #ffffff; }";
+  html += "#topBtn { position: fixed; bottom: 20px; right: 30px; display: none; padding: 10px; font-size: 18px; }";
+  html += ".icon { font-size: 24px; cursor: pointer; margin: 20px; }";
+  html += "</style></head><center>";
+  html += "<body class='light'>";
+  html += "<h1>RoomCom Monitor</h1>";
+  html += "<p>Temperature: " + String(temperature) + " &deg;C</p>";
+  html += "<p>Humidity: " + String(humidity) + " %</p>";
+  html += "<i class='fa fa-sun-o icon' onclick='toggleLightMode()' id='light-icon'></i>";
+  html += "<i class='fa fa-moon-o icon' onclick='toggleDarkMode()' id='dark-icon' style='display:none;'></i>";
+  html += "<button onclick='topFunction()' id='topBtn'>Go to Top</button>";
+  html += "<script>";
+  html += "function toggleLightMode() { document.body.classList.add('light'); document.body.classList.remove('dark');";
+  html += "document.getElementById('light-icon').style.display = 'none'; document.getElementById('dark-icon').style.display = 'inline'; }";
+  html += "function toggleDarkMode() { document.body.classList.add('dark'); document.body.classList.remove('light');";
+  html += "document.getElementById('dark-icon').style.display = 'none'; document.getElementById('light-icon').style.display = 'inline'; }";
+  html += "</script>";
+  html += "</div></center></body></html>";
+  return html;
+}
