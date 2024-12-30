@@ -27,6 +27,35 @@ void setup() {
   Serial.println(WiFi.localIP());
   server.begin();
 }
+void loop() {
+  float temperature = getTemperature();
+  if (temperature > 24.0) {
+    digitalWrite(LED_PIN, HIGH);  
+  } else {
+    digitalWrite(LED_PIN, LOW);   
+  }
+  WiFiClient client = server.available();
+  if (client) {
+    String htmlPage = generateHTML();
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-type:text/html");
+    client.println();
+    client.println(htmlPage);
+    client.println();
+    client.stop();
+  }
+  delay(5000);
+}
+
+float getTemperature() {
+  float temp = dht.readTemperature();
+  return isnan(temp) ? 0.0 : temp;
+}
+
+float getHumidity() {
+  float humidity = dht.readHumidity();
+  return isnan(humidity) ? 0.0 : humidity;
+}
 String generateHTML() {
   float temperature = getTemperature();
   float humidity = getHumidity();
