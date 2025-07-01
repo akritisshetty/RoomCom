@@ -9,6 +9,7 @@
 * Wi-Fi-enabled web dashboard hosted on ESP32
 * Real-time temperature and humidity display using DHT11
 * Condition-based LED indicator for comfortable environment
+* Light and Dark mode toggle on the web interface
 * Responsive design using HTML, CSS, and JavaScript
 
 ---
@@ -28,14 +29,12 @@
 2. DHT11 sensor reads temperature and humidity every 5 seconds.
 3. If temperature > 24°C, the blue LED is turned on.
 4. Data is displayed on a web page hosted by the ESP32.
+5. User can toggle between light and dark modes on the interface.
 
 ---
 
 ## Preview
-
-> *(Add screenshots or a diagram here if available)*
-> Example:
-> ![RoomCom UI Screenshot](preview.png)
+https://drive.google.com/file/d/1HCqCLqlwwR26c1DuXkr8uqdMYbVqvx8K/view?usp=sharing
 
 ---
 
