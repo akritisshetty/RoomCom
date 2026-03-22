@@ -4,7 +4,7 @@
 
 ---
 
-## Features
+## 1. Features
 
 * Wi-Fi-enabled web dashboard hosted on ESP32
 * Real-time temperature and humidity display using DHT11
@@ -14,7 +14,7 @@
 
 ---
 
-## Technologies Used
+## 2. Technologies Used
 
 * **Hardware:** ESP32, DHT11 Sensor, LED
 * **Software:** Embedded C++, HTML, CSS, JavaScript
@@ -23,22 +23,16 @@
 
 ---
 
-## How It Works
+## 3. Project Structure
 
-1. ESP32 connects to the local Wi-Fi using credentials.
-2. DHT11 sensor reads temperature and humidity every 5 seconds.
-3. If temperature > 24°C, the blue LED is turned on.
-4. Data is displayed on a web page hosted by the ESP32.
-5. User can toggle between light and dark modes on the interface.
-
+```
+RoomCom/
+├── RoomCom.ino        # Main project file
+├── README.md          # Project documentation
+```
 ---
 
-## Preview
-https://drive.google.com/file/d/1HCqCLqlwwR26c1DuXkr8uqdMYbVqvx8K/view?usp=sharing
-
----
-
-## Setup Instructions
+## 4. Setup Instructions
 
 1. **Install Libraries**
 
@@ -60,12 +54,15 @@ https://drive.google.com/file/d/1HCqCLqlwwR26c1DuXkr8uqdMYbVqvx8K/view?usp=shari
 
 ---
 
-## File Structure
+## 5. How It Works
 
-```
-RoomCom/
-├── RoomCom.ino        # Main project file
-├── README.md          # Project documentation
-```
+1. ESP32 connects to the local Wi-Fi using credentials.
+2. DHT11 sensor reads temperature and humidity every 5 seconds.
+3. If temperature > 24°C, the blue LED is turned on.
+4. Data is displayed on a web page hosted by the ESP32.
+5. User can toggle between light and dark modes on the interface.
 
 ---
+
+## 6. Preview
+https://drive.google.com/file/d/1HCqCLqlwwR26c1DuXkr8uqdMYbVqvx8K/view?usp=sharing
